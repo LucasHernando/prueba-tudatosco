@@ -121,8 +121,10 @@ Puedes ejecutar las pruebas unitarias con `pytest`. Desde la raíz del proyecto 
 ```bash
 pytest tests/services/test_auth_services.py
 ```
+## ✅ Documentacion con Swagger
+http://localhost:8082/apidocs/
 
-Esto ejecutará las pruebas definidas en el archivo correspondiente. Puedes adaptar el path para correr todas las pruebas o pruebas específicas según lo necesites.
+Esto permite ver las apis documentadas
 
 ---
 
