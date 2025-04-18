@@ -1,0 +1,41 @@
+services:
+  backend_event:
+    container_name: backend_event
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+
+    environment:
+      # Importante: tu app.py está en /src/app.py, así que FLASK_APP=app
+      FLASK_APP: app.py
+      FLASK_ENV: production
+      FLASK_RUN_HOST: 0.0.0.0
+      FLASK_RUN_PORT: 8082
+      PYTHONUNBUFFERED: '1'
+    env_file:
+      - ./src/.env
+    ports:
+      - "8082:8082"
+    volumes:
+      - .:/src
+    depends_on:
+      - db_event
+    restart: always
+    networks:
+      - api-event-app
+    
+  db_event:
+    image: docker.io/bitnami/postgresql:15
+    container_name: db_event
+    ports:
+      - 5432:5432
+    env_file:
+      - ./src/.env
+    volumes:
+      - .db_event:/var/postgre2
+    networks:
+      - api-event-app
+
+networks:
+  api-event-app:
+    driver: bridge

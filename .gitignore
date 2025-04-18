@@ -1,0 +1,34 @@
+# Entorno virtual
+.venv/
+venv/
+
+# Archivos y carpetas locales de la base de datos
+.db_event/
+
+# Migraciones
+src/migrations/
+
+# Cachés de Python
+__pycache__/
+**/__pycache__/
+
+# Caché de pytest
+src/.pytest_cache/
+.pytest_cache/
+
+# Archivos temporales
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Configuraciones de entorno
+.env
+
+# Archivos de VSCode u otros editores
+.vscode/
+.idea/
+
+# Docker
+*.pid
+*.sock
