@@ -18,7 +18,7 @@ Asegúrese de tener instalado:
 Desde la raíz del proyecto, levante los servicios usando:
 
 ```bash
-docker-compose -f backend_events/docker-compose-backend.yml up --build
+docker-compose -f docker-compose-backend.yml up --build
 ```
 
 Una vez inicializado el contenedor, ingrese al contenedor y ejecute los siguientes comandos para configurar la base de datos:
