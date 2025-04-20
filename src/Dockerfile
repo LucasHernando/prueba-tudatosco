@@ -23,14 +23,4 @@ ENV FLASK_APP=app:create_app \
 # 6) Exponer el puerto
 EXPOSE 8082
 
-# 7) Al iniciar:
-#    a) flask db upgrade  → aplica las migraciones
-#    b) flask seed        → ejecuta tu comando custom de seed
-#    c) flask run         → levanta la aplicación
-#CMD ["sh", "-c", "\
-#    flask db upgrade && \
-#    flask seed && \
-#    flask run --host=${FLASK_RUN_HOST} --port=${FLASK_RUN_PORT} \
-#"]
-
 CMD ["sh", "-c", "flask run --host=${FLASK_RUN_HOST} --port=${FLASK_RUN_PORT}"]
