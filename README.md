@@ -46,8 +46,8 @@ flask seed
 - **Body**:
 ```json
 {
-  "email": "test@gmail.com",
-  "password": "password_1254521214"
+  "email": "admin@example.com",
+  "password": "admin123"
 }
 ```
 - **Respuesta exitosa**: JWT Token para autenticación en endpoints protegidos.

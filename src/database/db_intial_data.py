@@ -18,6 +18,7 @@ def register_commands(app):
         from models.event_model import Event
         from models.session_model import Session
         from models.attendance_model import Attendance
+        from models.registration_model import Registration
         from utils.objects_model import Permissions
         
         
@@ -48,6 +49,17 @@ def register_commands(app):
             if not perm.startswith("__") and not callable(getattr(Permissions, perm)):
                 permission_objects.append(Permission(name=getattr(Permissions, perm)))
         db.session.add_all(permission_objects)
+        db.session.commit()
+        
+        
+        # Registros (inscripciones) a eventos
+        registrations = [
+            Registration(user_id=user1.id, event_id=events[0].id),
+            Registration(user_id=user2.id, event_id=events[0].id),
+            Registration(user_id=user3.id, event_id=events[1].id),
+            Registration(user_id=user3.id, event_id=events[2].id),
+        ]
+        db.session.add_all(registrations)
         db.session.commit()
 
         # Asignación lógica de permisos
