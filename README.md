@@ -130,5 +130,5 @@ Esto permite ver las apis documentadas
 
 ## 📅 Autor y Licencia
 
-- Autor: Equipo de Desarrollo Backend Events
+- Autor: Lucas Hernando Bonilla Conde
 - Licencia: MIT

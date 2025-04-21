@@ -51,17 +51,6 @@ def register_commands(app):
         db.session.add_all(permission_objects)
         db.session.commit()
         
-        
-        # Registros (inscripciones) a eventos
-        registrations = [
-            Registration(user_id=user1.id, event_id=events[0].id),
-            Registration(user_id=user2.id, event_id=events[0].id),
-            Registration(user_id=user3.id, event_id=events[1].id),
-            Registration(user_id=user3.id, event_id=events[2].id),
-        ]
-        db.session.add_all(registrations)
-        db.session.commit()
-
         # Asignación lógica de permisos
         admin_permissions = permission_objects
         organizer_permissions = [p for p in permission_objects if "event" in p.name or "session" in p.name]
@@ -108,6 +97,16 @@ def register_commands(app):
             sessions.append(session)
 
         db.session.add_all(sessions)
+        db.session.commit()
+        
+         # Registros (inscripciones) a eventos
+        registrations = [
+            Registration(user_id=user1.id, event_id=events[0].id),
+            Registration(user_id=user2.id, event_id=events[0].id),
+            Registration(user_id=user3.id, event_id=events[1].id),
+            Registration(user_id=user3.id, event_id=events[2].id),
+        ]
+        db.session.add_all(registrations)
         db.session.commit()
 
         # Asistencias
