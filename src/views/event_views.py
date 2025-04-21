@@ -25,7 +25,6 @@ class EventAPI(MethodView):
     @jwt_required()
     @swag_from(MackupsSwagger.LIST_EVENTS)
     @permission_required(Permissions.GET_LIST_EVENTS)
-    @permission_required("view_get_events")
     def get(self, event_id=None):
         search = request.args.get("search")
         page = request.args.get('page', default=1, type=int)
